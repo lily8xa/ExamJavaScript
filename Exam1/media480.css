@@ -1,0 +1,21 @@
+@media screen and (max-width: 480px) {
+    .form-test {
+        height: 95%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(248, 248, 248, 0.88);
+        margin: auto;
+    }
+
+    button {
+        padding: 0 10px;
+    }
+
+    .list-comment {
+        font-size: 16px;
+        color: gray;
+        margin-top: 20px;
+    }
+}
