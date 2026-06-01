@@ -1,7 +1,7 @@
 
 
 async function mainDetails() {
-
+try {
 
     const urlParms = new URL(location.href);
     const userId = urlParms.searchParams.get("id");
@@ -42,66 +42,55 @@ async function mainDetails() {
     for (const com in company1) {
 
 
-
-        const liCompany=document.createElement('li')
+        const liCompany = document.createElement('li')
         liCompany.innerText = `${com}: ${company1[com]}`
         company.appendChild(liCompany)
-        console.log(com)
-
-
-
-
-}
-
-    let titleInfo=await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
-        .then(response => response.json())
-    const buttonTitle=document.createElement("button")
-    buttonTitle.classList.add("button-title")
-    buttonTitle.innerText=`Post of current user ${userId}`
-
-    const postContainer=document.createElement('div')
-    postContainer.classList.add("postContainer")
-    buttonTitle.addEventListener("click", () =>{
-
-        postContainer.innerText=''
-
-
-        const titlePost=document.createElement('ul')
-
-        for(const tit of titleInfo) {
-
-
-            const post=document.createElement('li')
-            post.innerText=tit.title
-            titlePost.appendChild(post)
-            details.appendChild(titlePost)
-            const postDetails=document.createElement('a')
-            postDetails.classList.add("post-details")
-            postDetails.innerText='Post Details'
-            postDetails.href=`post-details.html?id=${tit.id}`
-            post.appendChild(postDetails)
-
 
 
     }
-        postContainer.appendChild(titlePost)
+
+    let titleInfo = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+        .then(response => response.json())
+    const buttonTitle = document.createElement("button")
+    buttonTitle.classList.add("button-title")
+    buttonTitle.innerText = `Post of current user ${userId}`
+
+    const postContainer = document.createElement('div')
+    postContainer.classList.add("postContainer")
+    buttonTitle.addEventListener("click", () => {
+
+        postContainer.innerText = ''
 
 
+
+
+        for (const tit of titleInfo) {
+
+            const titlePost = document.createElement('div')
+            titlePost.classList.add('title-post')
+            const post = document.createElement('p')
+            post.innerText = tit.title
+
+
+            const postDetails = document.createElement('a')
+            postDetails.classList.add("post-details")
+            postDetails.innerText = 'Post Details'
+            postDetails.href = `post-details.html?id=${tit.id}`
+            titlePost.append(post,postDetails)
+            postContainer.appendChild(titlePost)
+
+        }
 
     })
 
 
-
-
-    console.log(titleInfo)
-
-
+    details.append(uId, uName, usName, usEmail, addressName, number, veb, company, buttonTitle, postContainer)
+}catch (error){
 
 
 
-
-    details.append(uId,uName,usName,usEmail,addressName,number,veb,company,buttonTitle,postContainer)
-
+    console.log(error)
+}
 }
 
 mainDetails()

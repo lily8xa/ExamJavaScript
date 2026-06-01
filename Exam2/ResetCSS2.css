@@ -1,11 +1,20 @@
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Caveat", cursive ;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 html, body {
     height: 100%;
+    background: #ff8f8f;
+    background: radial-gradient(circle, rgba(255, 143, 143, 1) 0%, rgba(255, 236, 69, 1) 53%, rgba(255, 140, 117, 1) 100%);
 }
 
 
@@ -23,11 +32,11 @@ table {
     border-spacing: 0;
 }
 
-/*button {*/
-/*    border: none;*/
-/*    background: none;*/
-/*    cursor: pointer;*/
-/*}*/
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
 img {
     max-width: 100%;
