@@ -9,8 +9,8 @@ buttonAdd.addEventListener("click", function(){
 
 
 
-    const valueIn=input.value.trim();
-    const regular=valueIn.match(/[a-zA-Z0-9=a-zA-Z0-9]+/)
+    const valueIn=input.value.replace(/\s+/g,'')
+    const regular=valueIn.match(/^[a-zA-Z0-9= ]+$/)
 
 
 
@@ -20,7 +20,7 @@ buttonAdd.addEventListener("click", function(){
         notNow.innerText='not correct "Name=Value"'
     }else if(!valueIn.includes('=')){
         notNow.innerText='not correct "Name=Value"'
-    }
+        }
     else {
         notNow.innerText='';
         const pair=valueInput[0].split(`=`)
@@ -57,6 +57,7 @@ let sortValue=document.getElementById("sort-value");
 sortValue.addEventListener("click", function(){
     const resultValue=document.getElementById("comment");
     resultValue.innerText='';
+
     let valueSort=arrResultValue.sort((a, b) =>a.localeCompare(b));
     for(const item of valueSort){
         const liValue=document.createElement('li');
@@ -70,4 +71,7 @@ let deleteButton=document.getElementById("delete");
 deleteButton.addEventListener("click", function(){
     const del=document.getElementById("comment");
     del.innerText='';
+    arrResultName.length=0;
+    arrResultValue.length=0;
+
 })
