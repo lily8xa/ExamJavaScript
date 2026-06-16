@@ -55,8 +55,8 @@ button{
     padding: 0 30px  ;
 }
 #comment{
-    height: 300px;
-    max-height: 300px;
+    height: 500px;
+    max-height: 500px;
     overflow: auto;
     width: 100%;
     font-size: 20px;
@@ -71,4 +71,9 @@ button{
 
 #sort-name{
     margin-top: 150px;
+}
+.delete-button{
+    padding:0 2px 0 2px ;
+    background: none;
+    border: none;
 }

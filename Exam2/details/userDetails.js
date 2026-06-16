@@ -5,7 +5,7 @@ try {
 
     const urlParms = new URL(location.href);
     const userId = urlParms.searchParams.get("id");
-    let usersDetails = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    const usersDetails = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
         .then(response => response.json())
     const details = document.getElementById('div-details')
     const uId = document.createElement('h2')
@@ -49,7 +49,7 @@ try {
 
     }
 
-    let titleInfo = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+    const titleInfo = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
         .then(response => response.json())
     const buttonTitle = document.createElement("button")
     buttonTitle.classList.add("button-title")
@@ -75,7 +75,7 @@ try {
             const postDetails = document.createElement('a')
             postDetails.classList.add("post-details")
             postDetails.innerText = 'Post Details'
-            postDetails.href = `post-details.html?id=${tit.id}`
+            postDetails.href = `../post/post-details.html?id=${tit.id}`
             titlePost.append(post,postDetails)
             postContainer.appendChild(titlePost)
 

@@ -1,10 +1,10 @@
-async function PostUserDetails(){
+async function postUserDetails(){
 try{
     const urlParms = new URLSearchParams(window.location.search);
     const postId = urlParms.get("id");
 
 
-    let postDetails = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    const postDetails = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         .then(response => response.json())
     const divDetails=document.getElementById('post-details')
     const userId=document.createElement('h1')
@@ -16,7 +16,7 @@ try{
     const body=document.createElement('p')
     body.innerText=`${postDetails.body}`
 
-    let postComments=await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+    const postComments=await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
     .then(response => response.json())
     const commentDiv=document.getElementById('post-comments')
     for(const postComment of postComments){
@@ -47,4 +47,4 @@ divDetails.append(userId,id,title,body)
     console.log(error)
 }
 }
-PostUserDetails()
+postUserDetails()

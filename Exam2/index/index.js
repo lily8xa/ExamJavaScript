@@ -3,7 +3,7 @@ let blockUsers = document.getElementById('users-name')
 async function main() {
 
     try {
-        let users = await fetch('https://jsonplaceholder.typicode.com/users')
+        const users = await fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
         for (const user of users) {
             const divUser = document.createElement("div")
@@ -18,7 +18,7 @@ async function main() {
             button.classList.add("button")
             button.innerText = `Details ${user.id}`
 
-            button.href = `user-details.html?id=${user.id}` /////////////
+            button.href = `../details/user-details.html?id=${user.id}` /////////////
 
             divUser.append(id, name, button)
             blockUsers.appendChild(divUser)
