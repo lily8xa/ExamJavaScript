@@ -25,7 +25,8 @@ buttonAdd.addEventListener("click", function(){
         const pair=valueIn.split(`=`)
         const name=pair[0]
         const value=pair[1]
-        pairList.push({name:name,value:value})
+        const newPair={name:name,value:value}
+        pairList.push(newPair)
 
         const li=document.createElement('li');
         result.appendChild(li);
@@ -36,11 +37,16 @@ buttonAdd.addEventListener("click", function(){
         deleteButton.innerText=`&#x274c`
         li.appendChild(deleteButton);
         deleteButton.addEventListener("click", function(){
-            li.innerText=''
-        })
-        console.log(pairList)
+            const index = pairList.indexOf(newPair);
+            if (index !== -1) {
+                pairList.splice(index, 1);
+            }
+            li.remove();
 
-    }
+        });
+        }
+
+
 
 })
 
@@ -62,7 +68,11 @@ sortName.addEventListener("click", function(){
        liName.appendChild(deleteButton)
        resultName.appendChild(liName);
         deleteButton.addEventListener("click", function(){
-            liName.innerText=''
+            const index = pairList.indexOf(item);
+            if (index !== -1) {
+                pairList.splice(index, 1);
+            }
+            liName.remove();
         })
    }
 
@@ -83,7 +93,11 @@ sortValue.addEventListener("click", function(){
         deleteButton.innerText=`&#x274c`
         liValue.appendChild(deleteButton)
         deleteButton.addEventListener("click", function(){
-            liValue.innerText=''
+            const index = pairList.indexOf(item);
+            if (index !== -1) {
+                pairList.splice(index, 1);
+            }
+            liValue.remove();
         })
     }
 
